@@ -1,0 +1,249 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* background-image: url("../assets/images/bg.jpg"); */
+}
+
+span {
+  color: rgb(170, 31, 31);
+}
+
+/* header */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 100px;
+  position: sticky;
+  top: 0;
+  background-color: #2282e2;
+  z-index: 100;
+  color: #efefef;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+#header h1 {
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#header h1:hover {
+  color: #ffffff;
+  font-style: italic;
+}
+
+#header ul {
+  list-style-type: none;
+}
+
+#header li {
+  display: inline;
+  font-weight: bold;
+}
+
+#header .login {
+  color: #efefef;
+  font-weight: bold;
+  border: 1px solid #efefef;
+}
+
+#header .login:hover {
+  color: #2282e2;
+  background: #efefef;
+  font-weight: bold;
+}
+
+#header a {
+  margin-top: 10px;
+}
+
+/* bagian class */
+.btn {
+  color: #efefef;
+  font-weight: bold;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.register {
+  background: #efefef;
+  box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.head {
+  border-radius: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 0;
+}
+
+.all {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.jenjang p {
+  padding-top: 8px;
+}
+
+.label-pend {
+  margin-bottom: 16px;
+}
+
+.fs-5 {
+  margin-top: 10px;
+}
+
+.pendidikan p {
+  padding-top: 8px;
+}
+
+.register-text {
+  background: #dedede;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 25px;
+  text-align: center;
+}
+
+.register-text-b {
+  background: #dedede;
+  margin: auto;
+  margin-top: 3rem;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 25px;
+}
+
+.register-text-c {
+  background: #dedede;
+  margin: 0;
+  padding: 0 25%;
+  font-size: 25px;
+}
+
+.register-text-d {
+  background: #dedede;
+  margin: 0;
+  padding: 0 29%;
+  font-size: 25px;
+}
+
+.all {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.all p {
+  margin-bottom: 8px;
+  margin-top: 1.5rem;
+}
+
+.all label {
+  margin-top: 1.5rem;
+}
+
+.jabatan {
+  width: 100%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.nama {
+  display: flex;
+  align-items: flex-start;
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.alamat {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.account {
+  margin-top: 3rem;
+  width: 80%;
+  margin: auto;
+}
+
+.account .form-control {
+  width: 100%;
+}
+
+.account .wa {
+  width: 100%;
+}
+
+.submit {
+  margin-top: 5%;
+  margin-left: 50%;
+}
+
+.form-check {
+  display: inline-block;
+}
+
+.form-check label {
+  margin-right: 3rem;
+  margin-top: 0;
+}
+
+/* Ket Format */
+
+.pengalaman p {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.referensi-kerja p {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.ktp p {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.npwp p {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.pasphoto p {
+  font-size: 12px;
+  color: red;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+/* Tutup Ket Format */
+.button-daftar {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
