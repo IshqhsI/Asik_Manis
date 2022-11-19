@@ -1,14 +1,12 @@
 <?php
 
-use App\Http\Controllers\BooksController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\Newjabatan;
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\DashboardAdminController;
 
 use Illuminate\Http\Request;
 
@@ -26,8 +24,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/', [HomeController::class, 'index'])->middleware('guest');
+
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
 
@@ -37,7 +36,16 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 
-Route::get('/dashboard', [Dashboard::class, 'index'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+
+Route::get('/dashboard/admin', [DashboardAdminController::class, 'index'])->middleware('admin');
+Route::get('/dashboard/admin/hapus/{id}', [DashboardAdminController::class, 'hapus'])->middleware('admin');
+Route::get('/dashboard/admin/detail/{id}', [DashboardAdminController::class, 'show'])->middleware('admin');
+Route::get('/dashboard/admin/edit/{id}', [DashboardAdminController::class, 'edit'])->middleware('admin');
+Route::post('/dashboard/admin/edit/{id}', [DashboardAdminController::class, 'update'])->middleware('admin');
+
+
 
 
 Route::resource('/daftar/jabatan', JabatanController::class)->middleware('auth');
