@@ -28,7 +28,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email:dns'],
+            'email' => 'required|email:dns',
             'password' => ['required']
         ]);
 
@@ -36,8 +36,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            Session::flash('log', 'success');
             return redirect()->intended('/dashboard');
         }
+
+
 
         return back()->with('loginError', 'login failed!');
     }

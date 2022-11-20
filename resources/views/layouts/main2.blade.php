@@ -24,17 +24,56 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/script.js"></script>
-    @if (Session::has('status'))
-        <script>
-            alert('Password Tidak Sama');
-        </script>
-    @endif
+
     @if (Session::has('loginError'))
         <script>
-            alert('Login Gagal');
+            Swal.fire(
+                'Login Gagal',
+                '',
+                'error'
+            )
         </script>
     @endif
-</body>
+    @if (Session::has('reg'))
+        <script>
+            Swal.fire(
+                'Register Berhasil',
+                'Silahkan Login',
+                'success'
+            )
+        </script>
+    @endif
+    @error('email')
+        <script>
+            Swal.fire(
+                'Email Tidak Valid,
+                '',
+                'error'
+            );
+        </script>
+    @enderror
 
-</html>
+    @error('name')
+        <script>
+            Swal.fire(
+                'Name Error',
+                '',
+                'error'
+                // 'success'
+            );
+        </script>
+    @enderror
+    @error('email')
+        <script>
+            Swal.fire(
+                'Email Tidak Valid,
+                '',
+                'error'
+            );
+        </script>
+    @enderror
+</body>
+<html>

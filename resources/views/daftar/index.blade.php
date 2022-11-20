@@ -118,9 +118,9 @@
                                     <div class="account">
                                         <div class="referensi-kerja mt-3">
                                             <label for="referensi-kerja">Referensi Kerja :</label>
-                                            <p class="">*Upload Gambar</p>
-                                            <input type="file" accept=".png, .jpg, .PNG, .jpeg, .JPEG"
-                                                name="referensi_kerja" id="referensi-kerja" class="form-control">
+                                            <p class="">*Upload PDF</p>
+                                            <input type="file" accept=".pdf" name="referensi_kerja"
+                                                id="referensi-kerja" class="form-control">
                                         </div>
 
                                         <div class="ktp mt-3">

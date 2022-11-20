@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('css/styleg.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/stylemin.css') }}">
+    <script src="{{ asset('js/one.js') }}"></script>
+
 
 </head>
 
@@ -41,7 +43,6 @@
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/one.js') }}"></script>
 
 
     <script>
@@ -52,6 +53,15 @@
             el.classList.toggle('toggled');
         };
     </script>
+    @if (Session::has('log'))
+        <script>
+            Swal.fire(
+                'Login Sukses',
+                '',
+                'success'
+            )
+        </script>
+    @endif
 
 
     {{-- @if (@session()->has('reg')) {{!!

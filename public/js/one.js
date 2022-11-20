@@ -1,12 +1,11 @@
 // alert('tes');
+$(".jenjang1").hide();
+$(".jenjang2").hide();
+$(".jenjang3").hide();
+$(".jenjang4").hide();
+$(".jenjang5").hide();
+$(".jenjang6").hide();
 $(function () {
-    $(".jenjang1").hide();
-    $(".jenjang2").hide();
-    $(".jenjang3").hide();
-    $(".jenjang4").hide();
-    $(".jenjang5").hide();
-    $(".jenjang6").hide();
-
     $(".jenjang1-pengalaman").hide();
     $(".jenjang2-pengalaman").hide();
     $(".jenjang3-pengalaman").hide();
