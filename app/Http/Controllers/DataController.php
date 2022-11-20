@@ -41,6 +41,18 @@ class DataController extends Controller
             'title' => 'Daftar',
             'jenjang' => Jenjang::all(),
             'jenjangAll' => $all,
+            'pendidikan1' => $penJenjang[1],
+            'pendidikan2' => $penJenjang[2],
+            'pendidikan3' => $penJenjang[3],
+            'pendidikan4' => $penJenjang[4],
+            'pendidikan5' => $penJenjang[5],
+            'pendidikan6' => $penJenjang[6],
+            'pengalaman1' => $pengJenjang[1],
+            'pengalaman2' => $pengJenjang[2],
+            'pengalaman3' => $pengJenjang[3],
+            'pengalaman4' => $pengJenjang[4],
+            'pengalaman5' => $pengJenjang[5],
+            'pengalaman6' => $pengJenjang[6],
             'pendidikan' => Pendidikan::all()
         ]);
     }
@@ -76,9 +88,9 @@ class DataController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'nohp' => 'required',
-            'referensi_kerja' => 'required|image',
-            'ktp' => 'required|image',
-            'npwp' => 'required|image',
+            'referensi_kerja' => 'required',
+            'ktp' => 'required',
+            'npwp' => 'required',
             'pasphoto' => 'required|image',
         ]);
 
@@ -106,6 +118,7 @@ class DataController extends Controller
             ]);
         }
 
+        DB::delete('delete from jabatan_alls where id_user = ?', [Auth::user()->id]);
 
 
         // $this->validate($request, [

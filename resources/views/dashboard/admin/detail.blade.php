@@ -65,21 +65,27 @@
                                     <div class="w3-container">
                                         <h5 class="w3-opacity"><b> KTP </b></h5>
                                         <h6 class="w3-text-teal">
-                                            <img src="{{ asset('storage/' . $one->ktp) }}" class="w-100"></img>
+                                            {{-- <img src="{{ asset('storage/' . $one->ktp) }}" class="w-100"></img> --}}
+                                            <a href="{{ asset('storage/' . $one->ktp) }}" class="btn btn-success"
+                                                download="{{ 'ktP-' . $one->nama }}">Download</a>
                                         </h6>
                                         <hr>
                                     </div>
                                     <div class="w3-container">
                                         <h5 class="w3-opacity"><b>NPWP</b></h5>
                                         <h6 class="w3-text-teal">
-                                            <img src="{{ asset('storage/' . $one->npwp) }}" class="w-100"></img>
+                                            {{-- <img src="{{ asset('storage/' . $one->npwp) }}" class="w-100"></img> --}}
+                                            <a href="{{ asset('storage/' . $one->npwp) }}" class="btn btn-success"
+                                                download="{{ 'npwp-' . $one->nama }}">Download</a>
                                         </h6>
                                         <hr>
                                     </div>
                                     <div class="w3-container">
                                         <h5 class="w3-opacity"><b>Referensi Kerja</b></h5>
                                         <h6 class="w3-text-teal">
-                                            <img src="{{ asset('storage/' . $one->referensi_kerja) }}" class="w-100"></img>
+                                            <a href="{{ asset('storage/' . $one->referensi_kerja) }}"
+                                                class="btn btn-success"
+                                                download="{{ 'referensi_kerja   -' . $one->nama }}">Download</a>
                                         </h6>
                                         <hr>
                                     </div>
