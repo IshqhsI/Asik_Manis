@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JabatanAll;
+use App\Models\JabatanUser;
 use App\Models\Jenjang;
 use App\Models\Pendidikan;
 use App\Models\Pengalaman;
@@ -102,6 +103,14 @@ class JabatanController extends Controller
         $pengalaman->storeAs('public/assets/pengalaman', $pengalaman->hashName());
 
         JabatanAll::create([
+            'id_user' => Auth::user()->id,
+            'nama_jabatan' => $request->jabatan_kerja,
+            'id_jenjang' => $request->jenjang,
+            'id_pendidikan' => $request->pendidikan,
+            'pengalaman' => $pengalaman->hashName()
+        ]);
+
+        JabatanUser::create([
             'id_user' => Auth::user()->id,
             'nama_jabatan' => $request->jabatan_kerja,
             'id_jenjang' => $request->jenjang,

@@ -116,7 +116,7 @@ $(function () {
     });
 });
 
-var el = document.getElementById("wrapper");
+var el = document.querySelector(".wrapper");
 var toggleButton = document.getElementById("menu-toggle");
 
 toggleButton.onclick = function () {

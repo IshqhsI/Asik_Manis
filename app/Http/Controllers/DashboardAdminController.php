@@ -17,7 +17,7 @@ class DashboardAdminController extends Controller
     {
         $this->authorize('admin');
         return view('Dashboard.admin.index', [
-            "title" => "Dashboard",
+            "title" => "Dashboard Admin",
             'sertifikasi' => Sertifikasi::all(),
             "linkgambarlogin" => "login.png",
             "linkgambarlogout" => "logout.png",

@@ -2,9 +2,9 @@
 
 @section('container')
     <div class="container-fluid">
-        <div class="d-flex" id="wrapper">
+        <div class="d-flex toggled" id="wrapper">
             @include('partials.sidebar')
-            <div id="page-content-wrapper">
+            <div id="page-content-wrapper" bgcolor="black">
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                     <div class="d-flex align-items-center">
                         <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -22,7 +22,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user me-2"></i>Admin
+                                    <i class="fas fa-user me-2"></i>{{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -33,12 +33,12 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="main container mt-5">
-                        <div class="bg-primary text-light head">
-                            <h3 class="fs-3 p-3">PENDAFTARAN ASIK MANIS</h3>
-                            <p class="fs-6 p-3 mb-0">APLIKASI SERTIFIKASI KONSTRUKSI MANIS</p>
-                        </div>
+                    <div class="main container mt-2">
+
                         <div class="register">
+                            <div class="bg-primary text-light head">
+                                <h3 class="fs-3 p-3">PENDAFTARAN ASIK MANIS</h3>
+                            </div>
                             <div class="register-box">
                                 <form action="/daftar" method="post" enctype="multipart/form-data">
                                     @csrf
@@ -46,9 +46,9 @@
                                         Jabatan Kerja
                                     </h2>
 
-                                    <table class="table table-striped table-hover w-75 m-auto mt-5">
+                                    <table class="table table-striped table-hover w-75 m-auto mt-5 align-middle">
                                         <thead>
-                                            <tr class="border-bottom border-dark">
+                                            <tr class="border-dark">
                                                 <th scope="col">No.</th>
                                                 <th scope="col">Nama Jabatan</th>
                                                 <th scope="col">Nama Jenjang</th>
@@ -74,7 +74,7 @@
                                         <a href="/daftar/jabatan" class="btn btn-primary"> Tambah Jabatan Kerja</a>
                                     </div> --}}
                                     <div class="container d-flex justify-content-center px-0 mt-4 mb-3" style="width: 75%;">
-                                        <button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
                                             Tambah Jabatan Kerja
                                         </button>
@@ -87,22 +87,23 @@
                                     <div class="nama">
                                         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
                                         <div class="col-lg-5">
-                                            <label for="nama" class=" d-flex align-items-start">Nama </label>
+                                            <label for="nama" class="d-block info-name">Nama </label>
                                         </div>
                                         <div class="col-lg-7">
                                             <input type="text" name="nama" id="nama" placeholder="Masukkan Nama"
-                                                class="form-control  @error('nama') is-invalid @enderror"
+                                                class="form-control  @error('nama') is-invalid @enderror info-pribadi"
                                                 value="{{ Auth::user()->name }}">
                                         </div>
                                     </div>
                                     <div class="alamat">
                                         <div class="col-lg-5">
-                                            <label for="alamat" class=" d-flex align-items-start">Alamat & Kode Pos
+                                            <label for="alamat" class="alamat-label">Alamat & Kode
+                                                Pos
                                             </label>
                                         </div>
                                         <div class="col-lg-7">
                                             <textarea type="textarea" name="alamat" id="alamat" placeholder="Masukkan Alamat"
-                                                class="form-control  @error('alamat') is-invalid @enderror"> </textarea>
+                                                class="form-control  @error('alamat') is-invalid @enderror info-pribadi"> </textarea>
                                         </div>
                                     </div>
                                     <div class="account d-flex mt-4 row">
@@ -133,6 +134,7 @@
                                             <input type="file" accept=".pdf" name="referensi_kerja"
                                                 id="referensi-kerja"
                                                 class="form-control @error('referensi_kerja') is-invalid @enderror">
+                                            <a href="{{ asset('assets/contoh/refer.pdf') }}" target="blank"> Contoh </a>
                                         </div>
 
                                         <div class="ktp mt-3">
@@ -148,10 +150,8 @@
                                                     class="form-control @error('npwp') is-invalid @enderror"></p>
                                         </div>
                                         <div class="pasphoto mt-3">
-                                            <label for="pasphoto">Pasphoto latar <span>merah</span> berukuran <span>3x4 =
-                                                    354 X
-                                                    472
-                                                    PX</span></label>
+                                            <label for="pasphoto">Pasphoto latar <span>merah</span> berukuran
+                                                <span>3x4</span></label>
                                             <p class="">*Upload Image</p>
                                             <input type="file" accept=".png, .PNG, .jpg, .JPG, .JPEG" name="pasphoto"
                                                 id="pasphoto"
@@ -302,6 +302,7 @@
 
                         <p class="format">* Menggunakan Format PDF</p>
                         <input type="file" accept=".pdf" name="pengalaman" class="form-control">
+                        <a href="{{ asset('assets/contoh/ketker.pdf') }}" target="blank"> Contoh </a>
 
                         <div class="<?= 'jenjang1-pengalaman' ?>">
                             <ul class="list-group">
@@ -362,7 +363,7 @@
 
 
             </div>
-            <div class="input-footer">
+            <div class="input-footer p-5 mx-auto">
                 <button class="btn btn-primary" type="submit">Tambah Jabatan Kerja</button>
             </div>
             </form>
