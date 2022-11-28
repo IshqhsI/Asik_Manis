@@ -95,28 +95,63 @@ class JabatanController extends Controller
         $this->validate($request, [
             'jabatan_kerja' => 'required',
             'jenjang' => 'required',
-            'pendidikan' => 'required',
-            'pengalaman' => 'required'
+            'pendidikan' => 'required'
         ]);
+
 
         $pengalaman = $request->file('pengalaman');
-        $pengalaman->storeAs('public/assets/pengalaman', $pengalaman->hashName());
+        $pendidikan = $request->pendidikan;
 
-        JabatanAll::create([
-            'id_user' => Auth::user()->id,
-            'nama_jabatan' => $request->jabatan_kerja,
-            'id_jenjang' => $request->jenjang,
-            'id_pendidikan' => $request->pendidikan,
-            'pengalaman' => $pengalaman->hashName()
-        ]);
+        $i = True;
 
-        JabatanUser::create([
-            'id_user' => Auth::user()->id,
-            'nama_jabatan' => $request->jabatan_kerja,
-            'id_jenjang' => $request->jenjang,
-            'id_pendidikan' => $request->pendidikan,
-            'pengalaman' => $pengalaman->hashName()
-        ]);
+        if ($pendidikan != 23 && $pengalaman == NULL) {
+            return back()->with('pengalamanError', 'daftar Jabatan failed!');
+        } else if ($pendidikan != 23 && $pengalaman != NULL) {
+            $pengalaman = $request->file('pengalaman');
+            $pengalaman->storeAs('public/assets/pengalaman', $pengalaman->hashName());
+        } else if ($pendidikan == 23 && $pengalaman != NULL) {
+            $pengalaman = $request->file('pengalaman');
+            $pengalaman->storeAs('public/assets/pengalaman', $pengalaman->hashName());
+        } else {
+            $i = False;
+            $pengalaman = 'TidakadaFile';
+        }
+
+        if ($i == false) {
+            JabatanAll::create([
+                'id_user' => Auth::user()->id,
+                'nama_jabatan' => $request->jabatan_kerja,
+                'id_jenjang' => $request->jenjang,
+                'id_pendidikan' => $request->pendidikan,
+                'pengalaman' => $pengalaman
+            ]);
+            JabatanUser::create([
+                'id_user' => Auth::user()->id,
+                'nama_jabatan' => $request->jabatan_kerja,
+                'id_jenjang' => $request->jenjang,
+                'id_pendidikan' => $request->pendidikan,
+                'pengalaman' => $pengalaman
+            ]);
+        } else {
+            JabatanAll::create([
+                'id_user' => Auth::user()->id,
+                'nama_jabatan' => $request->jabatan_kerja,
+                'id_jenjang' => $request->jenjang,
+                'id_pendidikan' => $request->pendidikan,
+                'pengalaman' => $pengalaman->hashName()
+            ]);
+            JabatanUser::create([
+                'id_user' => Auth::user()->id,
+                'nama_jabatan' => $request->jabatan_kerja,
+                'id_jenjang' => $request->jenjang,
+                'id_pendidikan' => $request->pendidikan,
+                'pengalaman' => $pengalaman->hashName()
+            ]);
+        }
+
+
+
+
 
         return redirect('/daftar');
     }

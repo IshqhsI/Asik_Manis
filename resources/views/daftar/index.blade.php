@@ -138,6 +138,13 @@
                                         </div>
 
                                         <div class="ktp mt-3">
+                                            <label for="ktp">Ijazah :</label>
+                                            <p class="">*Upload PDF</p>
+                                            <input type="file" accept=".pdf" name="ijazah" id="ijazah"
+                                                class="form-control  @error('ktp') is-invalid @enderror"></p>
+                                        </div>
+
+                                        <div class="ktp mt-3">
                                             <label for="ktp">KTP :</label>
                                             <p class="">*Upload PDF</p>
                                             <input type="file" accept=".pdf" name="ktp" id="ktp"

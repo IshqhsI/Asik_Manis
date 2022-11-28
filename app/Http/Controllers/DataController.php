@@ -89,12 +89,14 @@ class DataController extends Controller
             'password' => 'required',
             'nohp' => 'required',
             'referensi_kerja' => 'required',
+            'ijazah' => 'required',
             'ktp' => 'required',
             'npwp' => 'required',
             'pasphoto' => 'required|image',
         ]);
 
         $ref = $request->file('referensi_kerja')->store('referensiKerja');
+        $ijazah = $request->file('ijazah')->store('ijazah');
         $ktp = $request->file('ktp')->store('ktp');
         $npwp = $request->file('npwp')->store('npwp');
         $pasf = $request->file('pasphoto')->store('pasphoto');
@@ -108,6 +110,7 @@ class DataController extends Controller
                 'password' => $request->password,
                 'nohp' => $request->nohp,
                 'referensi_kerja' => $ref,
+                'ijazah' => $ijazah,
                 'ktp' => $ktp,
                 'npwp' => $npwp,
                 'pasphoto' => $pasf,
