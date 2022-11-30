@@ -4,7 +4,7 @@
         {{ 'tes' }}
     @endif
     <div class="container-fluid">
-        <div class="d-flex" id="wrapper">
+        <div class="d-flex toggled" id="wrapper">
             @include('partials.sidebar')
             <!-- Page Content -->
             <div id="page-content-wrapper">

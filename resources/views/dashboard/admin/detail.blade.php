@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="container-fluid p-md-0 p-sm-0">
-        <div class="d-flex" id="wrapper">
+        <div class="d-flex toggled" id="wrapper">
             @include('partials.sidebar')
             <!-- Page Content -->
             <div id="page-content-wrapper">
@@ -103,47 +103,46 @@
                                     </h2>
 
                                     <div class="w3-container">
-                                        <ul class="w3-ul ms-4">
+                                        <ol class="list-group">
+
                                             @foreach ($jabatan as $jbt)
-                                                <hr>
-                                                <div class="list">
-                                                    <h6>
-                                                        Jabatan
-                                                    </h6>
-                                                    <li class="list-group-item p-1 mb-3"> {{ $jbt->nama_jabatan }} </li>
-
-                                                </div>
-
-                                                <div class="list">
-
-                                                    <h6>
-                                                        Jenjang
-                                                    </h6>
-                                                    <li class="list-group-item p-1 mb-3"> {{ $jbt->nama_jenjang }}</li>
-                                                </div>
-
-                                                <div class="list">
-                                                    <h6>
-                                                        Pendidikan
-                                                    </h6>
-                                                    <li class="list-group-item p-1 mb-3"> {{ $jbt->nama_pendidikan }}
-                                                    </li>
-                                                </div>
-
-                                                <div class="list">
-                                                    <h6>
-                                                        Pengalaman
-                                                    </h6>
-                                                    <li class="list-group-item p-1 mb-3">
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start list-jabatan">
+                                                    <div class="ms-2 me-auto">
+                                                        <div class="fw-bold">Jabatan</div>
+                                                        {{ $jbt->nama_jabatan }}
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start list-jabatan">
+                                                    <div class="ms-2 me-auto">
+                                                        <div class="fw-bold">Jenjang</div>
+                                                        {{ $jbt->nama_jenjang }}
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start list-jabatan">
+                                                    <div class="ms-2 me-auto">
+                                                        <div class="fw-bold">Pendidikan</div>
+                                                        {{ $jbt->nama_pendidikan }}
+                                                    </div>
+                                                </li>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-start list-jabatan">
+                                                    <div class="ms-2 me-auto">
+                                                        <div class="fw-bold">Pengalaman</div>
                                                         <a href="{{ asset('storage/public/assets/pengalaman/' . $jbt->pengalaman) }}"
                                                             class="btn btn-warning"
                                                             download="pengalaman/{{ $one->nama }}">
                                                             Download
                                                         </a>
-                                                    </li>
-                                                </div>
+                                                    </div>
+                                                </li>
+
+                                                <hr>
                                             @endforeach()
-                                        </ul>
+                                        </ol>
+
                                     </div>
 
                                 </div>
