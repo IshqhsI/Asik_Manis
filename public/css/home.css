@@ -1,0 +1,276 @@
+* {
+    font-family: "Montserrat";
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0 0 16px 0;
+}
+
+section {
+    /* padding: 80px 128px; */
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 12rem !important;
+    /* text-align: center; */
+    justify-content: center;
+}
+
+nav > a {
+    margin-left: 40px;
+    /* box-shadow: ; */
+}
+
+nav > a:hover {
+    color: #08a4ff;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+p {
+    color: #979797;
+    margin: 0 0 16px 0;
+    font-size: 24px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #08a4ff;
+    display: block;
+    width: 100%;
+}
+
+.footer p {
+    padding: 16px 0;
+    margin: 0;
+    color: #ececee;
+    font-size: 14px;
+    text-align: center;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 99;
+}
+
+#status {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-image: url(../assets/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lp-header {
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 128px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    margin: 0 5%;
+}
+
+.nav-link:hover {
+    background: #ececee;
+    border-radius: 20px;
+}
+
+#lp-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 16px;
+    margin-top: 2rem;
+    /* z-index: 1; */
+}
+
+#lp-text h1 span {
+    color: #08a4ff;
+}
+
+#lp-text p {
+    margin-bottom: 32px;
+    color: black;
+}
+
+#lp-text > div {
+    width: 50%;
+}
+
+#lp-text > div > img {
+    margin-left: 25%;
+}
+
+.logo-lp {
+    width: 5%;
+    display: none;
+}
+
+.asikmanis {
+    color: #08a4ff;
+    font-size: 30px;
+}
+
+.asikmanis:hover {
+    color: #979797;
+    cursor: pointer;
+}
+
+.btn-nav {
+    background-color: #08a4ff;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.btn-nav:hover {
+    background-color: #ececee;
+    color: #08a4ff;
+}
+
+.btn {
+    background-color: #08a4ff;
+    color: #ececee;
+    padding: 8px 24px;
+    border-radius: 20px;
+}
+
+.btn-alt {
+    background-color: white;
+    color: black;
+    margin-right: 16px;
+    border: 2px solid #08a4ff;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: #ececee;
+    color: #08a4ff;
+}
+
+.gambarmob {
+    display: none;
+}
+
+.container-fluid img {
+    display: none;
+}
+
+/* Responsive Mobile */
+@media screen and (max-width: 487px) {
+    section {
+        /* padding: 80px 128px; */
+        display: flex;
+        width: 80%;
+        margin: 0;
+        margin-top: 1rem !important;
+        /* text-align: center; */
+        justify-content: center;
+    }
+    .lp-header {
+        top: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+
+    #lp-text {
+        width: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    #lp-text div {
+        /* margin: ; */
+        width: 100%;
+        margin: 3rem 1rem;
+    }
+
+    #lp-text .home {
+        width: 100%;
+        /* margin: 3rem 1rem !important; */
+        padding: 0;
+        margin: 0;
+        margin-top: 3rem;
+        text-align: center;
+        /* display: flex; */
+    }
+
+    #lp-text .home p {
+        padding: 1rem;
+        margin-top: 2rem;
+        text-align: justify;
+        width: 100%;
+    }
+
+    #lp-text .gambar {
+        display: none;
+    }
+
+    #lp-text .gambarmob {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    #lp-text .gambarmob img {
+        margin: 0;
+        width: 100%;
+    }
+
+    .btn {
+        margin: 3rem 0;
+        margin-top: 1rem;
+    }
+
+    .container-fluid img {
+        display: block;
+        width: 10%;
+        margin: 0;
+    }
+
+    .asikmanis {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .footer {
+        display: block;
+        position: static;
+    }
+}
