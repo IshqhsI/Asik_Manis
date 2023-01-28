@@ -6,7 +6,7 @@
     <form action="/daftar/jabatan" method="post" enctype="multipart/form-data">
         @csrf
 
-        {{-- @method('PUT') --}}
+        @method('PUT')
 
         <div class="jenjang">
             <div class="jabatan">

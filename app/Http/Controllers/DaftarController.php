@@ -14,7 +14,7 @@ class DaftarController extends Controller
 {
     public function __construct()
     {
-        $this->jenjang = new Jenjang();
+        // $this->jenjang = new Jenjang();
     }
     public function index()
     {
@@ -69,4 +69,11 @@ class DaftarController extends Controller
     //         'title' => 'Tambah Jabatan Kerja'
     //     ]);
     // }
+    public function hapus($id)
+    {
+        $user = Auth::user()->id;
+        DB::delete("DELETE FROM `jabatan_alls` WHERE `jabatan_alls`.`id` = $id AND `jabatan_alls`.`id_user` = ?", [$user]);
+        // DB::delete('DELETE FROM `jabatan_users` WHERE `jabatan_users`.`id` = ?', [$id]);
+        return redirect('/daftar');
+    }
 }

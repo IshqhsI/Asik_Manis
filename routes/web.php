@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -50,6 +51,12 @@ Route::post('/dashboard/admin/edit/{id}', [DashboardAdminController::class, 'upd
 
 Route::resource('/daftar/jabatan', JabatanController::class)->middleware('auth');
 Route::resource('/daftar', DataController::class)->middleware('auth');
+Route::get('/daftar/hapus/{id}', [DaftarController::class, 'hapus'])->middleware('auth');
+
+// Buat Controller untuk data profil dan return ke view profil/index
+Route::get('/dashboard/profil', [DashboardController::class, 'profil'])->middleware('auth');
+
+Route::post('/dashboard/profil/jabatan', [DataController::class, 'profilInput'])->middleware('auth');
 
 
 

@@ -21,32 +21,7 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        for ($i = 1; $i <= 6; $i++) {
-            $penJenjang[$i] = Pendidikan::Where('id_jenjang', $i)->get();
-        }
-
-        for ($i = 1; $i <= 6; $i++) {
-            $pengJenjang[$i] = Pengalaman::Where('id_jenjang', $i)->get();
-        }
-
-
-        return view('daftar.jabatan.index', [
-            'title' => 'Daftar',
-            'jenjang' => Jenjang::all(),
-            'pendidikan1' => $penJenjang[1],
-            'pendidikan2' => $penJenjang[2],
-            'pendidikan3' => $penJenjang[3],
-            'pendidikan4' => $penJenjang[4],
-            'pendidikan5' => $penJenjang[5],
-            'pendidikan6' => $penJenjang[6],
-            'pengalaman1' => $pengJenjang[1],
-            'pengalaman2' => $pengJenjang[2],
-            'pengalaman3' => $pengJenjang[3],
-            'pengalaman4' => $pengJenjang[4],
-            'pengalaman5' => $pengJenjang[5],
-            'pengalaman6' => $pengJenjang[6],
-            'pendidikan' => Pendidikan::all()
-        ]);
+        
     }
 
     /**
@@ -92,6 +67,7 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'jabatan_kerja' => 'required',
             'jenjang' => 'required',
@@ -101,7 +77,7 @@ class JabatanController extends Controller
 
         $pengalaman = $request->file('pengalaman');
         $pendidikan = $request->pendidikan;
-
+        
         $i = True;
 
         if ($pendidikan != 23 && $pengalaman == NULL) {
