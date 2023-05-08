@@ -1,4 +1,40 @@
+const jabatankerja = [
+    "Manajer Lapangan Pelaksanaan Pekerjaan Gedung",
+    "Kepala Pengelola Lingkungan Bangunan Gedung",
+    "Pelaksana Lapangan Pekerjaan Gedung",
+    "Pelaksana Lapangan Pekerjaan Gedung Madya",
+    "Juru Gambar Bangunan Gedung",
+    "Pengawas Pekerjaan Struktur Bangunan Gedung",
+    "Pengawas Pekerjaan Struktur Bangunan Gedung Madya",
+    "Pengawas Pekerjaan Struktur Bangunan Gedung Utama",
+    "Perencana Struktur Bangunan RISHA",
+    "Pembuat Panel Struktur RISHA",
+    "Perakit Struktur Bangunan RISHA",
+    "Juru Gambar Bangunan Gedung Level 3",
+    "Juru Gambar Bangunan Gedung Level 2",
+    "Pelaksanaan Lapangan Pekerjaan Gedung Level 3",
+    "Pelaksanaan Lapangan Pekerjaan Gedung Level 2",
+    "Tukang Cat Bangun Gedung",
+    "Tukang Cat Bangun Gedung Level 2",
+    "Tukang Plester Bangunan Gedung",
+    "Tukang Plester Bangunan Gedung Level 2",
+    "Tukang Pasang Ubin",
+    "Tukang Pasang Ubin Level 2",
+];
+
 $(document).ready(function () {
+    $.each(jabatankerja, function (index, value) {
+        $("#jabatan-kerja").append(
+            $("<option>", {
+                value: value,
+                text: value,
+            })
+        );
+    });
+    jenjang();
+});
+
+function jenjang() {
     $(".jenjang1").hide();
     $(".jenjang2").hide();
     $(".jenjang3").hide();
@@ -114,4 +150,4 @@ $(document).ready(function () {
             $(".jenjang6-pengalaman").show();
         }
     });
-});
+}

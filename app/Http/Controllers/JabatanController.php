@@ -21,7 +21,7 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -68,6 +68,7 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
         $this->validate($request, [
             'jabatan_kerja' => 'required',
             'jenjang' => 'required',
@@ -77,7 +78,7 @@ class JabatanController extends Controller
 
         $pengalaman = $request->file('pengalaman');
         $pendidikan = $request->pendidikan;
-        
+
         $i = True;
 
         if ($pendidikan != 23 && $pengalaman == NULL) {

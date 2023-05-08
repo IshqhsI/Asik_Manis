@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Session;
+
 // use App\Http\Controllers\Session;
 
 class DataController extends Controller
@@ -29,6 +30,10 @@ class DataController extends Controller
     public function index()
     {
         //
+        if (Sertifikasi::where('id_user', Auth::user()->id)->first() !== NULL) {
+            return redirect('/dashboard/profil');
+        }
+
         for ($i = 1; $i <= 6; $i++) {
             $penJenjang[$i] = Pendidikan::Where('id_jenjang', $i)->get();
         }
@@ -181,10 +186,11 @@ class DataController extends Controller
         return redirect('/dashboard');
     }
 
-    public function profilInput(Request $request){
+    public function profilInput(Request $request)
+    {
 
-        
-         $this->validate($request, [
+
+        $this->validate($request, [
             'jabatan_kerja' => 'required',
             'jenjang' => 'required',
             'pendidikan' => 'required',
@@ -204,7 +210,7 @@ class DataController extends Controller
         // Tambah Jabatan
         $pengalaman = $request->file('pengalaman');
         $pendidikan = $request->pendidikan;
-        
+
         $i = True;
 
         if ($pendidikan != 23 && $pengalaman == NULL) {
